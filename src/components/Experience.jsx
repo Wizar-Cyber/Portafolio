@@ -11,6 +11,7 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const ExperienceCard = ({ experience }) => {
   return (
@@ -57,14 +58,16 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          {t("experience.sub")}
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience.
+          {t("experience.title")}
         </h2>
       </motion.div>
 

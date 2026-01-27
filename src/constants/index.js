@@ -8,10 +8,10 @@ import {
   html,
   css,
   reactjs,
-  redux,
+  python,
   tailwind,
   nodejs,
-  mongodb,
+  postgresql,
   git,
   figma,
   docker,
@@ -19,43 +19,129 @@ import {
   starbucks,
   tesla,
   shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
+  crm1,
+  crm2,
+  crm3,
+  crm4,
+  crm5,
+  crm6,
+  pet1,
+  pet2,
+  pet3,
+  pet5,
+  sm1,
+  sm2,
+  sm3,
+  sm4,
+  nmt1,
+  nmt2,
+  lg1,
+  lg2,
+  ptf1,
+  ptf2,
+  ptf3,
+  ptf4,
+  java,
 } from "../assets";
 
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    titleKey: "nav.about",
+  },
+  {
+    id: "education",
+    titleKey: "nav.education",
   },
   {
     id: "work",
-    title: "Work",
+    titleKey: "nav.work",
+  },
+  {
+    id: "certifications",
+    titleKey: "nav.certifications",
+  },
+  {
+    id: "languages",
+    titleKey: "nav.languages",
   },
   {
     id: "contact",
-    title: "Contact",
+    titleKey: "nav.contact",
   },
 ];
 
 const services = [
   {
-    title: "Web Developer",
+    titleKey: "services.softwareEngineering",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    titleKey: "services.frontend",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    titleKey: "services.backend",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    titleKey: "services.ai",
     icon: creator,
+  },
+];
+
+const education = [
+  {
+    titleKey: "education.software.title",
+    institutionKey: "education.software.institution",
+    dateKey: "education.software.date",
+  },
+  {
+    titleKey: "education.genai.title",
+    institutionKey: "education.genai.institution",
+    dateKey: "education.genai.date",
+  },
+  {
+    titleKey: "education.cybersecurity.title",
+    institutionKey: "education.cybersecurity.institution",
+    dateKey: "education.cybersecurity.date",
+  },
+  {
+    titleKey: "education.technician.title",
+    institutionKey: "education.technician.institution",
+    dateKey: "education.technician.date",
+  },
+];
+
+const certifications = [
+  {
+    nameKey: "certifications.cybersecurity.name",
+    issuerKey: "certifications.cybersecurity.issuer",
+    dateKey: "certifications.cybersecurity.date",
+    credential_url: "",
+  },
+  {
+    nameKey: "certifications.security.name",
+    issuerKey: "certifications.security.issuer",
+    dateKey: "certifications.security.date",
+    credential_url: "",
+  },
+  {
+    nameKey: "certifications.oracle.name",
+    issuerKey: "certifications.oracle.issuer",
+    dateKey: "certifications.oracle.date",
+    credential_url: "",
+  },
+];
+
+const languages = [
+  {
+    nameKey: "languages.spanish.name",
+    levelKey: "languages.spanish.level",
+  },
+  {
+    nameKey: "languages.english.name",
+    levelKey: "languages.english.level",
   },
 ];
 
@@ -81,8 +167,8 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "Python",
+    icon: python,
   },
   {
     name: "Tailwind CSS",
@@ -93,12 +179,12 @@ const technologies = [
     icon: nodejs,
   },
   {
-    name: "MongoDB",
-    icon: mongodb,
+    name: "PostgreSQL",
+    icon: postgresql,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "Java",
+    icon: java,
   },
   {
     name: "git",
@@ -198,68 +284,200 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
-    description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    nameKey: "projects.crm.name",
+    descriptionKey: "projects.crm.description",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "typescript",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "nodejs",
         color: "green-text-gradient",
+      },
+      {
+        name: "express",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "postgresql",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "drizzle",
+        color: "orange-text-gradient",
       },
       {
         name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: crm1,
+    images: [crm1, crm2, crm3, crm4, crm5, crm6],
+    source_code_link: "https://github.com/Wizar-Cyber/CRM_EZpermitsTX.git",
   },
   {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    nameKey: "projects.pet.name",
+    descriptionKey: "projects.pet.description",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "vite",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "express",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "postgresql",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "sequelize",
         color: "pink-text-gradient",
       },
+      {
+        name: "jwt",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "redis",
+        color: "red-text-gradient",
+      },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: pet1,
+    images: [pet1, pet2, pet3, pet5],
+    source_code_link: "https://github.com/Wizar-Cyber/El_Club_Pet.git",
   },
   {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    nameKey: "projects.smartflow.name",
+    descriptionKey: "projects.smartflow.description",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "typescript",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "express",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "postgresql",
+        color: "cyan-text-gradient",
+      },
+    ],
+    image: sm1,
+    images: [sm1, sm2, sm3, sm4],
+    source_code_link: "https://github.com/Wizar-Cyber/SmartFlow.git",
+  },
+  {
+    nameKey: "projects.calculadora.name",
+    descriptionKey: "projects.calculadora.description",
+    tags: [
+      {
+        name: "python",
+        color: "green-text-gradient",
+      },
+      {
+        name: "streamlit",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "pandas",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: nmt1,
+    images: [nmt1, nmt2],
+    source_code_link: "https://github.com/Wizar-Cyber/Calculadora-de-nomina.git",
+  },
+  {
+    nameKey: "projects.login.name",
+    descriptionKey: "projects.login.description",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "vite",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "cyan-text-gradient",
+      },
+      {
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: lg1,
+    images: [lg1, lg2],
+    source_code_link: "https://github.com/Wizar-Cyber/Login-React-TypeScript-Vite.git",
+  },
+  {
+    nameKey: "projects.portfolio.name",
+    descriptionKey: "projects.portfolio.description",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "purple-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "express",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "postgresql",
+        color: "cyan-text-gradient",
+      },
+    ],
+    image: ptf1,
+    images: [ptf1, ptf2, ptf3, ptf4],
+    source_code_link: "https://github.com/Wizar-Cyber/Mi-portafolio.git",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  education,
+  certifications,
+  languages,
+};
