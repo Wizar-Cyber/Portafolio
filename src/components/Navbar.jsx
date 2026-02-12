@@ -47,11 +47,11 @@ const Navbar = ({ isDark, onToggleTheme }) => {
           <img src={logo} alt={t("alt.logo")} className='w-9 h-9 object-contain' />
           <p className='text-primary dark:text-white text-[18px] font-bold cursor-pointer flex '>
             Reiber &nbsp;
-            <span className='sm:block hidden'> | {t("services.softwareEngineering")}</span>
+            <span className='md:block hidden'> | {t("services.softwareEngineering")}</span>
           </p>
         </Link>
 
-        <div className='hidden sm:flex items-center gap-6'>
+        <div className='hidden md:flex items-center gap-6'>
           <button
             type='button'
             onClick={() => setLanguage(language === "es" ? "en" : "es")}
@@ -85,7 +85,7 @@ const Navbar = ({ isDark, onToggleTheme }) => {
           </ul>
         </div>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='md:hidden flex flex-1 justify-end items-center'>
           <button
             type='button'
             onClick={() => setLanguage(language === "es" ? "en" : "es")}

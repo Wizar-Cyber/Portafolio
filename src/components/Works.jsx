@@ -40,13 +40,13 @@ const ProjectCard = ({
   }, [slides.length]);
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.1, 0.75)} className='h-full flex'>
       <Tilt
         tiltMaxAngleX={45}
         tiltMaxAngleY={45}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        className='bg-tertiary p-3 sm:p-5 rounded-2xl w-full sm:w-[360px] flex-1 flex flex-col'
       >
-        <div className='relative w-full h-[230px]'>
+        <div className='relative w-full h-[140px] sm:h-[230px]'>
           <div className='w-full h-full overflow-hidden rounded-2xl relative'>
             <AnimatePresence initial={false} custom={direction}>
               {slides.length > 0 ? (
@@ -69,7 +69,7 @@ const ProjectCard = ({
               {slides.map((_, i) => (
                 <span
                   key={`${nameKey}-dot-${i}`}
-                  className={`w-2 h-2 rounded-full ${
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                     i === activeSlide ? "bg-white" : "bg-white/30"
                   }`}
                 />
@@ -80,7 +80,7 @@ const ProjectCard = ({
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              className='black-gradient w-8 h-8 sm:w-10 sm:h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
               <img
                 src={github}
@@ -91,16 +91,16 @@ const ProjectCard = ({
           </div>
         </div>
 
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{t(nameKey)}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{t(descriptionKey)}</p>
+        <div className='mt-3 sm:mt-5 flex-1'>
+          <h3 className='text-white font-bold text-[16px] sm:text-[24px]'>{t(nameKey)}</h3>
+          <p className='mt-2 text-secondary text-[12px] sm:text-[14px] line-clamp-3 sm:line-clamp-none'>{t(descriptionKey)}</p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
+        <div className='mt-3 sm:mt-4 flex flex-wrap gap-2'>
           {tags.map((tag) => (
             <p
               key={`${nameKey}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              className={`text-[10px] sm:text-[14px] ${tag.color}`}
             >
               #{tag.name}
             </p>
@@ -130,7 +130,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-10 sm:mt-20 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-7'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} t={t} />
         ))}

@@ -23,9 +23,9 @@ const Hero = () => {
   };
 
   return (
-    <section className={`relative w-full h-[85vh] mx-auto`}>
+    <section className={`relative w-full min-h-[85vh] h-auto mx-auto pt-[120px]`}>
       <div
-        className={`absolute inset-0 top-[120px] z-10 max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={`max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 pb-10`}
       >
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
