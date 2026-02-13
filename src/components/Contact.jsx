@@ -34,20 +34,30 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    // DEBUG TEMPORAL - borrar después
+    console.log("=== ENV VARIABLES ===");
+    console.log("SERVICE_ID:", import.meta.env.VITE_APP_EMAILJS_SERVICE_ID);
+    console.log("TEMPLATE_ID:", import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID);
+    console.log("PUBLIC_KEY:", import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
+    console.log("=== FORM DATA ===");
+    console.log("name:", form.name);
+    console.log("email:", form.email);
+    console.log("message:", form.message);
+
     emailjs.send(
-  import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-  import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-  {
-    name: form.name,
-    email: form.email,
-    message: form.message,
-    time: new Date().toLocaleString("es-CO", {
-      dateStyle: "long",
-      timeStyle: "short",
-    }),
-  },
-  import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-)
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        time: new Date().toLocaleString("es-CO", {
+          dateStyle: "long",
+          timeStyle: "short",
+        }),
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    )
       .then(
         () => {
           setLoading(false);
@@ -62,7 +72,6 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert(t("contact.error"));
         }
       );
