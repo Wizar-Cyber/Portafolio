@@ -1,51 +1,73 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-import { styles } from "../styles";
 import { certifications } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const CertificationCard = ({ index, item, viewLabel, t }) => (
-  <motion.div
-    variants={fadeIn("up", "spring", index * 0.25, 0.75)}
-    className='w-full'
-  >
-    <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2'>
-      <div>
-        <h3 className='text-primary dark:text-white font-bold text-[20px]'>{t(item.nameKey)}</h3>
-        <p className='text-secondary dark:text-secondary text-[14px]'>{t(item.issuerKey)}</p>
-      </div>
-      <p className='text-secondary dark:text-secondary text-[14px] sm:text-right'>{t(item.dateKey)}</p>
-    </div>
-
-    {item.credential_url ? (
-      <div className='mt-4'>
-        <a
-          href={item.credential_url}
-          target='_blank'
-          rel='noreferrer'
-          className='text-[14px] blue-text-gradient font-semibold'
-        >
-          {viewLabel}
-        </a>
-      </div>
-    ) : null}
+const SectionHeader = ({ eyebrow, title }) => (
+  <motion.div variants={textVariant()}>
+    <div className="mb-4 h-px w-10 bg-flow-accent" />
+    <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-flow-muted">
+      {eyebrow}
+    </p>
+    <h2 className="mt-2 font-mono text-[32px] font-semibold text-flow-text">
+      {title.slice(0, -1)}
+      <span className="text-flow-accent">.</span>
+    </h2>
   </motion.div>
 );
+
+const issuerInitials = (issuer) => {
+  if (issuer.toLowerCase().includes("mintic")) return "MT";
+  if (issuer.toLowerCase().includes("oracle")) return "OR";
+  return "GG";
+};
+
+const CertificationCard = ({ index, item, viewLabel, t }) => {
+  const issuer = t(item.issuerKey);
+
+  return (
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.08, 0.55)}
+      className="flex items-start gap-4 rounded-[10px] border border-flow-border bg-flow-surface p-5 transition-colors duration-150 hover:border-flow-accent/25"
+    >
+      <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-flow-border bg-flow-bg">
+        <span className="font-mono text-sm font-bold text-flow-accent">
+          {issuerInitials(issuer)}
+        </span>
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-flow-muted">
+          {issuer} · {t(item.dateKey)}
+        </p>
+        <h3 className="mt-1 line-clamp-2 font-body text-sm font-medium text-flow-text">
+          {t(item.nameKey)}
+        </h3>
+        {item.credential_url && (
+          <a
+            href={item.credential_url}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-block font-mono text-xs text-flow-accent/70 transition-colors hover:text-flow-accent"
+          >
+            {viewLabel} →
+          </a>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const Certifications = () => {
   const { t } = useLanguage();
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{t("certifications.sub")}</p>
-        <h2 className={styles.sectionHeadText}>{t("certifications.title")}</h2>
-      </motion.div>
+      <SectionHeader eyebrow={t("certifications.sub")} title={t("certifications.title")} />
 
-      <div className='mt-10 flex flex-col gap-6'>
+      <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {certifications.map((item, index) => (
           <CertificationCard
             key={`certification-${index}`}

@@ -10,7 +10,9 @@ export const translations = {
     "hero.greeting": "Hola, soy",
     "hero.subtitle1": "Ingeniero de software enfocado en desarrollo web.",
     "hero.subtitle2": "Interesado en IA y machine learning.",
+    "hero.bio": "Construyo sistemas que automatizan lo que debería ser automatizado.",
     "hero.downloadCv": "Descargar CV",
+    "hero.available": "Disponible",
     "hero.photoPlaceholder": "Tu foto",
 
     "about.sub": "Introducción",
@@ -25,20 +27,15 @@ export const translations = {
 
     "work.sub": "Mi trabajo",
     "work.title": "Proyectos.",
+    "tech.title": "Tecnologías.",
     "work.body":
       "Estos proyectos muestran mis habilidades y experiencia mediante ejemplos reales. Cada proyecto incluye una breve descripción y enlaces al repositorio y/o demo. Reflejan mi capacidad para resolver problemas, trabajar con diferentes tecnologías y entregar resultados.",
-
-    "feedbacks.sub": "Lo que dicen",
-    "feedbacks.title": "Testimonios.",
-    "feedbacks.of": "de",
-
-    "experience.sub": "Lo que he hecho hasta ahora",
-    "experience.title": "Experiencia.",
 
     "contact.sub": "Hablemos",
     "contact.title": "Contacto.",
     "contact.emailLabel": "Correo",
     "contact.copy": "Copiar",
+    "contact.copyEmail": "Copiar email",
     "contact.copied": "Copiado",
     "contact.sendEmail": "Enviar correo",
     "contact.name": "Tu nombre",
@@ -51,6 +48,10 @@ export const translations = {
     "contact.send": "Enviar",
     "contact.success": "Gracias. Te responderé lo antes posible.",
     "contact.error": "Ocurrió un error. Por favor intenta nuevamente.",
+    "contact.location": "Medellín, Colombia",
+    "contact.linkedin": "LinkedIn",
+    "contact.github": "GitHub",
+    "contact.direct": "Contacto directo",
 
     "education.sub": "Formación",
     "education.title": "Estudios.",
@@ -95,18 +96,22 @@ export const translations = {
     "education.software.title": "Ingeniería de Software",
     "education.software.institution": "Fundación Universitaria María Cano",
     "education.software.date": "2026",
+    "education.software.type": "Pregrado",
     
     "education.genai.title": "IA Generativa",
     "education.genai.institution": "Oracle",
     "education.genai.date": "2025",
+    "education.genai.type": "Certificación",
     
     "education.cybersecurity.title": "Ciberseguridad Avanzada",
     "education.cybersecurity.institution": "Universidad de Antioquia",
     "education.cybersecurity.date": "2025",
+    "education.cybersecurity.type": "Certificación",
     
     "education.technician.title": "Técnico en Sistemas",
     "education.technician.institution": "Servicio Nacional de Aprendizaje (SENA)",
     "education.technician.date": "2018",
+    "education.technician.type": "Técnico",
 
     "certifications.cybersecurity.name": "Fundamentos de la Ciberseguridad",
     "certifications.cybersecurity.issuer": "Google",
@@ -138,7 +143,9 @@ export const translations = {
     "hero.greeting": "Hi, I'm",
     "hero.subtitle1": "Software engineer focused on web development.",
     "hero.subtitle2": "Interested in AI and machine learning.",
+    "hero.bio": "I build systems that automate what should be automated.",
     "hero.downloadCv": "Download CV",
+    "hero.available": "Available",
     "hero.photoPlaceholder": "Your photo",
 
     "about.sub": "Introduction",
@@ -153,20 +160,15 @@ export const translations = {
 
     "work.sub": "My work",
     "work.title": "Projects.",
+    "tech.title": "Technologies.",
     "work.body":
       "These projects showcase my skills and experience through real-world examples. Each project includes a short description and links to a repository and/or demo. They reflect my ability to solve problems, work with different technologies, and deliver results.",
-
-    "feedbacks.sub": "What others say",
-    "feedbacks.title": "Testimonials.",
-    "feedbacks.of": "of",
-
-    "experience.sub": "What I have done so far",
-    "experience.title": "Experience.",
 
     "contact.sub": "Get in touch",
     "contact.title": "Contact.",
     "contact.emailLabel": "Email",
     "contact.copy": "Copy",
+    "contact.copyEmail": "Copy email",
     "contact.copied": "Copied",
     "contact.sendEmail": "Send email",
     "contact.name": "Your name",
@@ -179,6 +181,10 @@ export const translations = {
     "contact.send": "Send",
     "contact.success": "Thank you. I will get back to you as soon as possible.",
     "contact.error": "Something went wrong. Please try again.",
+    "contact.location": "Medellín, Colombia",
+    "contact.linkedin": "LinkedIn",
+    "contact.github": "GitHub",
+    "contact.direct": "Direct contact",
 
     "education.sub": "Education",
     "education.title": "Studies.",
@@ -223,18 +229,22 @@ export const translations = {
     "education.software.title": "Software Engineering",
     "education.software.institution": "María Cano University Foundation",
     "education.software.date": "2026",
+    "education.software.type": "Undergraduate",
     
     "education.genai.title": "Generative AI",
     "education.genai.institution": "Oracle",
     "education.genai.date": "2025",
+    "education.genai.type": "Certification",
     
     "education.cybersecurity.title": "Advanced Cybersecurity",
     "education.cybersecurity.institution": "University of Antioquia",
     "education.cybersecurity.date": "2025",
+    "education.cybersecurity.type": "Certification",
     
     "education.technician.title": "Systems Technician",
     "education.technician.institution": "National Learning Service (SENA)",
     "education.technician.date": "2018",
+    "education.technician.type": "Technician",
 
     "certifications.cybersecurity.name": "Cybersecurity Fundamentals",
     "certifications.cybersecurity.issuer": "Google",

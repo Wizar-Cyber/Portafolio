@@ -22,11 +22,6 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import java from "./tech/java.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
-
 import crm1 from "./crm1.png";
 import crm2 from "./crm2.png";
 import crm3 from "./crm3.png";
@@ -73,10 +68,6 @@ export {
   tailwind,
   typescript,
   java,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
   crm1,
   crm2,
   crm3,

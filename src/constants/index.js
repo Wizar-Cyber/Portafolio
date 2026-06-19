@@ -15,10 +15,6 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   crm1,
   crm2,
   crm3,
@@ -50,12 +46,12 @@ export const navLinks = [
     titleKey: "nav.about",
   },
   {
-    id: "education",
-    titleKey: "nav.education",
-  },
-  {
     id: "work",
     titleKey: "nav.work",
+  },
+  {
+    id: "education",
+    titleKey: "nav.education",
   },
   {
     id: "certifications",
@@ -95,21 +91,25 @@ const education = [
     titleKey: "education.software.title",
     institutionKey: "education.software.institution",
     dateKey: "education.software.date",
+    typeKey: "education.software.type",
   },
   {
     titleKey: "education.genai.title",
     institutionKey: "education.genai.institution",
     dateKey: "education.genai.date",
+    typeKey: "education.genai.type",
   },
   {
     titleKey: "education.cybersecurity.title",
     institutionKey: "education.cybersecurity.institution",
     dateKey: "education.cybersecurity.date",
+    typeKey: "education.cybersecurity.type",
   },
   {
     titleKey: "education.technician.title",
     institutionKey: "education.technician.institution",
     dateKey: "education.technician.date",
+    typeKey: "education.technician.type",
   },
 ];
 
@@ -147,14 +147,6 @@ const languages = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
     name: "JavaScript",
     icon: javascript,
   },
@@ -171,8 +163,8 @@ const technologies = [
     icon: python,
   },
   {
-    name: "Tailwind CSS",
-    icon: tailwind,
+    name: "Java",
+    icon: java,
   },
   {
     name: "Node JS",
@@ -183,102 +175,28 @@ const technologies = [
     icon: postgresql,
   },
   {
-    name: "Java",
-    icon: java,
+    name: "Tailwind",
+    icon: tailwind,
   },
   {
-    name: "git",
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Git",
     icon: git,
   },
   {
-    name: "figma",
+    name: "Figma",
     icon: figma,
   },
   {
-    name: "docker",
-    icon: docker,
-  },
-];
-
-const experiences = [
-  {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+    name: "HTML 5",
+    icon: html,
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-];
-
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    name: "CSS 3",
+    icon: css,
   },
 ];
 
@@ -287,34 +205,13 @@ const projects = [
     nameKey: "projects.crm.name",
     descriptionKey: "projects.crm.description",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "yellow-text-gradient",
-      },
-      {
-        name: "postgresql",
-        color: "cyan-text-gradient",
-      },
-      {
-        name: "drizzle",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "react" },
+      { name: "typescript" },
+      { name: "nodejs" },
+      { name: "express" },
+      { name: "postgresql" },
+      { name: "drizzle" },
+      { name: "tailwind" },
     ],
     image: crm1,
     images: [crm1, crm2, crm3, crm4, crm5, crm6],
@@ -324,38 +221,14 @@ const projects = [
     nameKey: "projects.pet.name",
     descriptionKey: "projects.pet.description",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "cyan-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "yellow-text-gradient",
-      },
-      {
-        name: "postgresql",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "sequelize",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "jwt",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "redis",
-        color: "red-text-gradient",
-      },
+      { name: "react" },
+      { name: "vite" },
+      { name: "nodejs" },
+      { name: "express" },
+      { name: "postgresql" },
+      { name: "sequelize" },
+      { name: "jwt" },
+      { name: "redis" },
     ],
     image: pet1,
     images: [pet1, pet2, pet3, pet5],
@@ -365,30 +238,12 @@ const projects = [
     nameKey: "projects.smartflow.name",
     descriptionKey: "projects.smartflow.description",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "yellow-text-gradient",
-      },
-      {
-        name: "postgresql",
-        color: "cyan-text-gradient",
-      },
+      { name: "react" },
+      { name: "typescript" },
+      { name: "tailwind" },
+      { name: "nodejs" },
+      { name: "express" },
+      { name: "postgresql" },
     ],
     image: sm1,
     images: [sm1, sm2, sm3, sm4],
@@ -398,18 +253,9 @@ const projects = [
     nameKey: "projects.calculadora.name",
     descriptionKey: "projects.calculadora.description",
     tags: [
-      {
-        name: "python",
-        color: "green-text-gradient",
-      },
-      {
-        name: "streamlit",
-        color: "cyan-text-gradient",
-      },
-      {
-        name: "pandas",
-        color: "yellow-text-gradient",
-      },
+      { name: "python" },
+      { name: "streamlit" },
+      { name: "pandas" },
     ],
     image: nmt1,
     images: [nmt1, nmt2],
@@ -419,22 +265,10 @@ const projects = [
     nameKey: "projects.login.name",
     descriptionKey: "projects.login.description",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "vite",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "cyan-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "react" },
+      { name: "vite" },
+      { name: "typescript" },
+      { name: "tailwind" },
     ],
     image: lg1,
     images: [lg1, lg2],
@@ -444,38 +278,19 @@ const projects = [
     nameKey: "projects.portfolio.name",
     descriptionKey: "projects.portfolio.description",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "purple-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "express",
-        color: "yellow-text-gradient",
-      },
-      {
-        name: "postgresql",
-        color: "cyan-text-gradient",
-      },
+      { name: "react" },
+      { name: "typescript" },
+      { name: "tailwind" },
     ],
     image: ptf1,
     images: [ptf1, ptf2, ptf3, ptf4],
-    source_code_link: "https://github.com/Wizar-Cyber/Mi-portafolio.git",
+    source_code_link: "https://github.com/Wizar-Cyber/Portafolio.git",
   },
 ];
 
 export {
   services,
   technologies,
-  experiences,
-  testimonials,
   projects,
   education,
   certifications,

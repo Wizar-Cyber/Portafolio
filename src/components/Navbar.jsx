@@ -1,134 +1,174 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const IconButton = ({ children, label, onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    aria-label={label}
+    className="grid h-8 w-8 place-items-center rounded-md border border-flow-border bg-transparent font-mono text-xs text-flow-muted transition-colors duration-150 hover:border-flow-accent hover:text-flow-accent"
+  >
+    {children}
+  </button>
+);
 
 const Navbar = ({ isDark, onToggleTheme }) => {
   const { language, setLanguage, t } = useLanguage();
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) setActive(visible.target.id);
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
+    );
+
+    navLinks.forEach((nav) => {
+      const section = document.getElementById(nav.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleKey = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const toggleLanguage = () => setLanguage(language === "es" ? "en" : "es");
+
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-white dark:bg-primary" : "bg-transparent"
+      className={`fixed left-0 top-0 z-50 flex h-14 w-full items-center transition-all duration-300 ${
+        scrolled
+          ? "border-b border-flow-border bg-flow-bg/85 backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 sm:px-16">
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="font-mono text-[15px] font-semibold text-flow-accent"
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+            setOpen(false);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <img src={logo} alt={t("alt.logo")} className='w-9 h-9 object-contain' />
-          <p className='text-primary dark:text-white text-[18px] font-bold cursor-pointer flex '>
-            Reiber &nbsp;
-            <span className='md:block hidden'> | {t("services.softwareEngineering")}</span>
-          </p>
+          &lt;SF/&gt;
         </Link>
 
-        <div className='hidden md:flex items-center gap-6'>
-          <button
-            type='button'
-            onClick={() => setLanguage(language === "es" ? "en" : "es")}
-            className='bg-tertiary px-3 py-2 rounded-lg text-white font-semibold'
-          >
-            {language === "es" ? t("lang.en") : t("lang.es")}
-          </button>
-
-          <button
-            type='button'
-            onClick={onToggleTheme}
-            className='bg-tertiary px-4 py-2 rounded-lg text-white font-semibold'
-          >
-            {isDark ? t("theme.light") : t("theme.dark")}
-          </button>
-
-          <ul className='list-none flex flex-row gap-10'>
+        <div className="hidden items-center gap-6 md:flex">
+          <ul className="flex list-none items-center gap-7">
             {navLinks.map((nav) => (
-              <li
-                key={nav.id}
-                className={`${
-                  active === nav.id
-                    ? "text-primary dark:text-white"
-                    : "text-secondary"
-                } hover:text-primary dark:hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(nav.id)}
-              >
-                <a href={`#${nav.id}`}>{t(nav.titleKey)}</a>
+              <li key={nav.id}>
+                <a
+                  href={`#${nav.id}`}
+                  onClick={() => setActive(nav.id)}
+                  className={`border-b-2 pb-1 font-mono text-[13px] uppercase tracking-[0.08em] transition-colors duration-150 ${
+                    active === nav.id
+                      ? "border-flow-accent text-flow-accent"
+                      : "border-transparent text-flow-muted hover:border-flow-accent hover:text-flow-text"
+                  }`}
+                >
+                  {t(nav.titleKey)}
+                </a>
               </li>
             ))}
           </ul>
+
+          <div className="flex items-center gap-2">
+            <IconButton label="Toggle language" onClick={toggleLanguage}>
+              {language === "es" ? "EN" : "ES"}
+            </IconButton>
+            <IconButton
+              label={isDark ? t("theme.light") : t("theme.dark")}
+              onClick={onToggleTheme}
+            >
+              {isDark ? (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36-.7-.7M6.34 6.34l-.7-.7m12.72 0-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+                </svg>
+              ) : (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.35 15.35A9 9 0 0 1 8.65 3.65 9 9 0 1 0 20.35 15.35z" />
+                </svg>
+              )}
+            </IconButton>
+          </div>
         </div>
 
-        <div className='md:hidden flex flex-1 justify-end items-center'>
-          <button
-            type='button'
-            onClick={() => setLanguage(language === "es" ? "en" : "es")}
-            className='bg-tertiary px-3 py-2 rounded-lg text-white font-semibold mr-3'
-          >
-            {language === "es" ? t("lang.en") : t("lang.es")}
-          </button>
-          <button
-            type='button'
+        <div className="flex items-center gap-2 md:hidden">
+          <IconButton label="Toggle language" onClick={toggleLanguage}>
+            {language === "es" ? "EN" : "ES"}
+          </IconButton>
+          <IconButton
+            label={isDark ? t("theme.light") : t("theme.dark")}
             onClick={onToggleTheme}
-            className='bg-tertiary px-3 py-2 rounded-lg text-white font-semibold mr-3'
           >
-            {isDark ? t("theme.light") : t("theme.dark")}
-          </button>
-          <img
-            src={toggle ? close : menu}
-            alt={t("alt.menu")}
-            className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
-          />
+            {isDark ? (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.36 6.36-.7-.7M6.34 6.34l-.7-.7m12.72 0-.7.7M6.34 17.66l-.7.7M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
+              </svg>
+            ) : (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.35 15.35A9 9 0 0 1 8.65 3.65 9 9 0 1 0 20.35 15.35z" />
+              </svg>
+            )}
+          </IconButton>
+          <IconButton label="Menu" onClick={() => setOpen((value) => !value)}>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d={open ? "M6 18 18 6M6 6l12 12" : "M4 7h16M4 12h16M4 17h16"} />
+            </svg>
+          </IconButton>
+        </div>
+      </div>
 
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.id ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.id);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{t(nav.titleKey)}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div
+        className={`fixed inset-0 top-14 z-40 bg-flow-bg/95 backdrop-blur-md transition-opacity duration-200 md:hidden ${
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="flex h-full flex-col items-center justify-center gap-8">
+          {navLinks.map((nav) => (
+            <a
+              key={nav.id}
+              href={`#${nav.id}`}
+              onClick={() => {
+                setActive(nav.id);
+                setOpen(false);
+              }}
+              className={`font-mono text-xl uppercase tracking-[0.08em] ${
+                active === nav.id ? "text-flow-accent" : "text-flow-text"
+              }`}
+            >
+              {t(nav.titleKey)}
+            </a>
+          ))}
         </div>
       </div>
     </nav>

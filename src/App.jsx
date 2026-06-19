@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { About, Certifications, Contact, Education, /* Feedbacks, */ Hero, Languages, Navbar, Tech, Works, StarsCanvas } from "./components";
+import { LanguageProvider } from "./i18n/LanguageContext";
+import { About, Certifications, Contact, Education, Hero, Languages, Navbar, Tech, Works, StarsCanvas } from "./components";
 
 const App = () => {
   const [theme, setTheme] = useState(() => {
@@ -21,30 +22,38 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-white dark:bg-primary'>
-        <div className='dark:bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+      <LanguageProvider>
+        <div className="flow-noise relative min-h-screen bg-flow-bg text-flow-text">
+          <div
+            className="pointer-events-none fixed inset-0 z-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 40% at 50% 0%, rgba(240,165,0,0.07) 0%, transparent 100%)",
+            }}
+          />
           <Navbar
             isDark={theme === "dark"}
             onToggleTheme={() =>
               setTheme((prev) => (prev === "dark" ? "light" : "dark"))
             }
           />
-          <Hero />
+          <main className="relative z-10">
+            <Hero />
+            <About />
+            <Tech />
+            <Works />
+            <Education />
+            <Certifications />
+            <Languages />
+            <div className="relative z-0">
+              <Contact />
+              <StarsCanvas />
+            </div>
+          </main>
         </div>
-        <About />
-        <Education />
-        <Tech />
-        <Works />
-        <Certifications />
-        <Languages />
-        {/* <Feedbacks /> */}
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
+      </LanguageProvider>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
