@@ -110,6 +110,18 @@ const certifications = [
     dateKey: "certifications.oracle.date",
     credential_url: "",
   },
+  {
+    nameKey: "certifications.deeplearning.name",
+    issuerKey: "certifications.deeplearning.issuer",
+    dateKey: "certifications.deeplearning.date",
+    credential_url: "",
+  },
+  {
+    nameKey: "certifications.edutinai.name",
+    issuerKey: "certifications.edutinai.issuer",
+    dateKey: "certifications.edutinai.date",
+    credential_url: "",
+  },
 ];
 
 const languages = [
@@ -288,6 +300,57 @@ const projects = [
     visual: "smartflow",
     metrics: ["AI product strategy", "Data capture", "Conversion analytics"],
     source_code_link: "https://github.com/Wizar-Cyber/SmartFlow.git",
+  },
+
+  {
+    nameKey: "projects.desercion.name",
+    descriptionKey: "projects.desercion.description",
+    type: "ML · MLOps · Education",
+    tags: [
+      { name: "python" },
+      { name: "pandas" },
+      { name: "numpy" },
+      { name: "scikit-learn" },
+      { name: "classification" },
+      { name: "mlops" },
+    ],
+    visual: "desercion",
+    metrics: ["Predictive modeling", "MLOps pipeline", "Educational data mining"],
+    source_code_link: "",
+  },
+
+  {
+    nameKey: "projects.avatar.name",
+    descriptionKey: "projects.avatar.description",
+    type: "AI · RAG · LLM",
+    tags: [
+      { name: "python" },
+      { name: "langchain" },
+      { name: "rag" },
+      { name: "llm" },
+      { name: "embeddings" },
+    ],
+    visual: "avatar",
+    metrics: ["RAG retrieval", "LLM integration", "Academic Q&A"],
+    source_code_link: "",
+  },
+
+  {
+    nameKey: "projects.n8nauto.name",
+    descriptionKey: "projects.n8nauto.description",
+    type: "AI · Automation · n8n",
+    isOwn: true,
+    tags: [
+      { name: "n8n" },
+      { name: "python" },
+      { name: "chatgpt" },
+      { name: "whatsapp" },
+      { name: "postgresql" },
+      { name: "rest-api" },
+    ],
+    visual: "n8nauto",
+    metrics: ["Data extraction", "WhatsApp automation", "REST APIs"],
+    source_code_link: "",
   },
 ];
 

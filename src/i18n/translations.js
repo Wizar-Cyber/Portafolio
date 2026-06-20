@@ -90,6 +90,8 @@ export const translations = {
     "projects.filters.client": "Cliente real",
     "projects.filters.fullstack": "Full-Stack",
     "projects.badges.own": "Propio",
+    "projects.viewDetails": "Ver detalles",
+    "projects.hideDetails": "Ocultar detalles",
     "projects.screenshotSoon": "Screenshot próximamente",
 
     "projects.gmailbot.name": "AI Gmail Bot",
@@ -118,6 +120,15 @@ export const translations = {
     
     "projects.portfolio.name": "Portfolio Website",
     "projects.portfolio.description": "Sitio web full-stack desarrollado como portafolio profesional para presentar proyectos, experiencia y habilidades técnicas. Integra diseño responsive, soporte bilingüe, temática oscura moderna y formulario de contacto, ofrece experiencia fluida y optimizada para posicionamiento web y presentación profesional.",
+
+    "projects.desercion.name": "ML Predictor de Deserción Estudiantil",
+    "projects.desercion.description": "Modelo predictivo basado en algoritmos de clasificación y minería de datos educativos para identificar estudiantes en riesgo de deserción. Implementé el ciclo completo de MLOps: limpieza y preprocesamiento con Pandas y NumPy, hasta evaluación de métricas de desempeño.",
+
+    "projects.avatar.name": "Avatar IA Generativa para Consultas Académicas",
+    "projects.avatar.description": "Avatar basado en IA Generativa para automatizar el acompañamiento académico. Integré LLMs con bases de datos universitarias mediante flujos RAG, garantizando respuestas precisas y contextualizadas para estudiantes y docentes.",
+
+    "projects.n8nauto.name": "Automatización Inteligente con n8n y ChatGPT",
+    "projects.n8nauto.description": "Flujos inteligentes con n8n y Python para extracción, clasificación y gestión de datos desde fuentes externas. Integré ChatGPT API con WhatsApp Business para automatizar interacciones y optimicé consultas PostgreSQL con APIs REST eficientes.",
 
     "education.software.title": "Ingeniería de Software",
     "education.software.institution": "Fundación Universitaria María Cano",
@@ -150,6 +161,14 @@ export const translations = {
     "certifications.oracle.name": "IA Generativa con Oracle",
     "certifications.oracle.issuer": "Oracle",
     "certifications.oracle.date": "2025",
+
+    "certifications.deeplearning.name": "Deep Learning en Python",
+    "certifications.deeplearning.issuer": "Datacamp",
+    "certifications.deeplearning.date": "2025",
+
+    "certifications.edutinai.name": "Inteligencia Artificial con Python",
+    "certifications.edutinai.issuer": "Edutin",
+    "certifications.edutinai.date": "2025",
 
     "languages.spanish.name": "Español",
     "languages.spanish.level": "Nativo",
@@ -249,6 +268,8 @@ export const translations = {
     "projects.filters.client": "Real client",
     "projects.filters.fullstack": "Full-Stack",
     "projects.badges.own": "Own",
+    "projects.viewDetails": "See details",
+    "projects.hideDetails": "Hide details",
     "projects.screenshotSoon": "Screenshot coming soon",
 
     "projects.gmailbot.name": "AI Gmail Bot",
@@ -277,6 +298,15 @@ export const translations = {
     
     "projects.portfolio.name": "Portfolio Website",
     "projects.portfolio.description": "Full-stack website developed as a professional portfolio to present projects, experience, and technical skills. It integrates responsive design, bilingual support, modern dark theme, and contact form, offering a fluid experience optimized for web positioning and professional presentation.",
+
+    "projects.desercion.name": "Student Dropout ML Predictor",
+    "projects.desercion.description": "Predictive model using classification algorithms and educational data mining to identify students at risk of dropout. Implemented the full MLOps cycle: data cleaning and preprocessing with Pandas and NumPy, through performance metric evaluation.",
+
+    "projects.avatar.name": "Generative AI Academic Avatar",
+    "projects.avatar.description": "Generative AI-based avatar to automate academic support. Integrated LLMs with university databases via RAG flows, ensuring accurate and contextualized responses for students and faculty.",
+
+    "projects.n8nauto.name": "Intelligent Automation with n8n & ChatGPT",
+    "projects.n8nauto.description": "Intelligent n8n and Python flows for data extraction, classification, and management from external sources. Integrated ChatGPT API with WhatsApp Business to automate interactions and optimized PostgreSQL queries with efficient REST APIs.",
 
     "education.software.title": "Software Engineering",
     "education.software.institution": "María Cano University Foundation",
@@ -309,6 +339,14 @@ export const translations = {
     "certifications.oracle.name": "Generative AI with Oracle",
     "certifications.oracle.issuer": "Oracle",
     "certifications.oracle.date": "2025",
+
+    "certifications.deeplearning.name": "Deep Learning in Python",
+    "certifications.deeplearning.issuer": "Datacamp",
+    "certifications.deeplearning.date": "2025",
+
+    "certifications.edutinai.name": "Artificial Intelligence with Python",
+    "certifications.edutinai.issuer": "Edutin",
+    "certifications.edutinai.date": "2025",
 
     "languages.spanish.name": "Spanish",
     "languages.spanish.level": "Native",

@@ -27,36 +27,15 @@ const filterMap = {
 };
 
 const visualContent = {
-  gmail: {
-    title: "AI Inbox",
-    metric: "RAG",
-    chips: ["mail", "ctx", "reply"],
-  },
-  pipeline: {
-    title: "Video Flow",
-    metric: "n8n",
-    chips: ["video", "audio", "post"],
-  },
-  cantrack: {
-    title: "Lead Score",
-    metric: "92",
-    chips: ["scrape", "score", "reply"],
-  },
-  crm: {
-    title: "Field Route",
-    metric: "200+",
-    chips: ["lead", "map", "visit"],
-  },
-  pet: {
-    title: "Clinic OS",
-    metric: "RBAC",
-    chips: ["citas", "historia", "pqrs"],
-  },
-  smartflow: {
-    title: "Automation",
-    metric: "AI",
-    chips: ["lead", "flow", "data"],
-  },
+  gmail: { title: "AI Inbox", metric: "RAG", chips: ["mail", "ctx", "reply"] },
+  pipeline: { title: "Video Flow", metric: "n8n", chips: ["video", "audio", "post"] },
+  cantrack: { title: "Lead Score", metric: "92", chips: ["scrape", "score", "reply"] },
+  crm: { title: "Field Route", metric: "200+", chips: ["lead", "map", "visit"] },
+  pet: { title: "Clinic OS", metric: "RBAC", chips: ["citas", "historia", "pqrs"] },
+  smartflow: { title: "Automation", metric: "AI", chips: ["lead", "flow", "data"] },
+  desercion: { title: "At-Risk ML", metric: "F1", chips: ["students", "predict", "score"] },
+  avatar: { title: "Campus AI", metric: "RAG", chips: ["ask", "retrieve", "answer"] },
+  n8nauto: { title: "AI Workflow", metric: "n8n", chips: ["extract", "gpt", "whatsapp"] },
 };
 
 const SectionHeader = ({ eyebrow, title }) => (
@@ -77,6 +56,9 @@ const ProjectVisual = ({ type = "gmail" }) => {
   const isMap = type === "crm";
   const isTable = type === "cantrack";
   const isPipeline = type === "pipeline" || type === "smartflow";
+  const isMatrix = type === "desercion";
+  const isChat = type === "avatar";
+  const isGraph = type === "n8nauto";
 
   return (
     <div className="relative h-[210px] overflow-hidden border-b border-flow-border bg-flow-bg">
@@ -86,7 +68,6 @@ const ProjectVisual = ({ type = "gmail" }) => {
         animate={{ opacity: [0.35, 0.72, 0.35], scale: [1, 1.04, 1] }}
         transition={{ duration: 4, repeat: Infinity }}
       />
-
       <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-flow-accent/80">
@@ -102,40 +83,56 @@ const ProjectVisual = ({ type = "gmail" }) => {
           {visual.metric}
         </motion.div>
       </div>
-
       <div className="absolute left-5 right-5 top-[72px]">
         {isMap ? (
           <div className="relative h-[96px] rounded-2xl border border-flow-border bg-flow-surface/70 p-4 backdrop-blur">
             <svg className="absolute inset-0 h-full w-full" viewBox="0 0 320 96" fill="none">
               <motion.path
                 d="M34 70 C78 24 108 64 146 38 C194 6 218 50 284 26"
-                stroke="var(--flow-accent)"
-                strokeWidth="2"
-                strokeDasharray="5 7"
+                stroke="var(--flow-accent)" strokeWidth="2" strokeDasharray="5 7"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 3.4, repeat: Infinity, repeatType: "reverse" }}
               />
               {[34, 146, 284].map((cx, index) => (
                 <motion.circle
-                  key={cx}
-                  cx={cx}
-                  cy={[70, 38, 26][index]}
-                  r="5"
-                  fill="var(--flow-accent)"
+                  key={cx} cx={cx} cy={[70, 38, 26][index]} r="5" fill="var(--flow-accent)"
                   animate={{ scale: [1, 1.4, 1], opacity: [0.65, 1, 0.65] }}
                   transition={{ duration: 2.2, repeat: Infinity, delay: index * 0.25 }}
                 />
               ))}
             </svg>
           </div>
+        ) : isMatrix ? (
+          <div className="grid grid-cols-2 gap-1.5">
+            {[
+              { label: "TP", pct: 85 },
+              { label: "FP", pct: 12 },
+              { label: "FN", pct: 8 },
+              { label: "TN", pct: 91 },
+            ].map((cell, i) => (
+              <motion.div
+                key={cell.label}
+                className="rounded-xl border border-flow-border bg-flow-surface/75 p-2 backdrop-blur"
+                animate={{ scale: [1, 1.04, 1] }}
+                transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.25 }}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] text-flow-muted">{cell.label}</span>
+                  <span className="font-mono text-[11px] text-flow-accent">{cell.pct}%</span>
+                </div>
+                <motion.div
+                  className="mt-1.5 h-1.5 rounded bg-flow-accent"
+                  animate={{ width: [`${cell.pct - 15}%`, `${cell.pct}%`, `${cell.pct - 8}%`] }}
+                  transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.25 }}
+                />
+              </motion.div>
+            ))}
+          </div>
         ) : isTable ? (
           <div className="rounded-2xl border border-flow-border bg-flow-surface/75 p-3 backdrop-blur">
             {[88, 72, 94].map((score, index) => (
-              <div
-                key={score}
-                className="mb-2 flex items-center gap-2 last:mb-0"
-              >
+              <div key={score} className="mb-2 flex items-center gap-2 last:mb-0">
                 <span className="h-2 w-2 rounded-full bg-flow-accent" />
                 <span className="h-2 flex-1 rounded bg-flow-border" />
                 <motion.span
@@ -145,6 +142,68 @@ const ProjectVisual = ({ type = "gmail" }) => {
                 />
               </div>
             ))}
+          </div>
+        ) : isChat ? (
+          <div className="space-y-1.5">
+            <motion.div
+              className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm border border-flow-border bg-flow-surface/75 p-2 backdrop-blur"
+              animate={{ x: [8, 0, 8], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <div className="h-1.5 w-14 rounded bg-flow-accent/60" />
+              <div className="mt-1 h-1.5 w-20 rounded bg-flow-border" />
+            </motion.div>
+            <motion.div
+              className="max-w-[80%] rounded-2xl rounded-bl-sm border border-flow-accent/25 bg-flow-accent/10 p-2 backdrop-blur"
+              animate={{ x: [-8, 0, -8], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+            >
+              <div className="h-1.5 w-20 rounded bg-flow-accent/80" />
+              <div className="mt-1 h-1.5 w-12 rounded bg-flow-border" />
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-1 pl-1"
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, delay: 2 }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-flow-accent/50" />
+              <span className="h-1.5 w-1.5 rounded-full bg-flow-accent/50" />
+              <span className="h-1.5 w-1.5 rounded-full bg-flow-accent/50" />
+            </motion.div>
+          </div>
+        ) : isGraph ? (
+          <div className="relative h-[96px]">
+            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 320 96" fill="none">
+              <motion.path
+                d="M46 48 L110 48 L186 48 L276 48"
+                stroke="var(--flow-accent)" strokeWidth="1.5" strokeDasharray="5 5"
+                animate={{ pathLength: [0, 1, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {[
+                { cx: 46, label: "API", pulse: 2 },
+                { cx: 110, label: "n8n", pulse: 1.5 },
+                { cx: 186, label: "GPT", pulse: 2.5 },
+                { cx: 276, label: "WA", pulse: 1.8 },
+              ].map((node) => (
+                <motion.g key={node.cx}>
+                  <circle cx={node.cx} cy={48} r="16" fill="var(--flow-bg)" stroke="var(--flow-accent)" strokeWidth="1.5" />
+                  <motion.circle
+                    cx={node.cx} cy={48} r="5" fill="var(--flow-accent)"
+                    animate={{ r: [5, 9, 5], opacity: [0.3, 0.7, 0.3] }}
+                    transition={{ duration: node.pulse, repeat: Infinity }}
+                  />
+                  <text x={node.cx} y={52} textAnchor="middle" fill="var(--flow-accent)" fontSize="10" fontFamily="monospace" fontWeight="600">
+                    {node.label}
+                  </text>
+                </motion.g>
+              ))}
+            </svg>
+            <motion.div
+              className="absolute left-[2%] right-[2%] top-[38px] h-px bg-flow-accent/40"
+              animate={{ opacity: [0.15, 0.6, 0.15] }}
+              transition={{ duration: 2.2, repeat: Infinity }}
+            />
           </div>
         ) : isPipeline ? (
           <div className="grid grid-cols-4 gap-2">
@@ -190,13 +249,9 @@ const ProjectVisual = ({ type = "gmail" }) => {
           </div>
         )}
       </div>
-
       <div className="absolute bottom-5 left-5 right-5 flex gap-1.5">
         {visual.chips.map((chip) => (
-          <span
-            key={chip}
-            className="rounded border border-flow-border bg-flow-surface/75 px-2 py-0.5 font-mono text-[10px] text-flow-muted backdrop-blur"
-          >
+          <span key={chip} className="rounded border border-flow-border bg-flow-surface/75 px-2 py-0.5 font-mono text-[10px] text-flow-muted backdrop-blur">
             {chip}
           </span>
         ))}
@@ -205,37 +260,39 @@ const ProjectVisual = ({ type = "gmail" }) => {
   );
 };
 
-const ProjectCard = ({ project, t }) => {
+const ProjectCard = ({ project, t, isActive, onToggle }) => {
   const {
-    nameKey,
-    descriptionKey,
-    tags = [],
-    source_code_link,
-    type,
-    isClient,
-    clientBadge,
-    isFeatured,
-    isOwn,
-    visual,
-    metrics = [],
+    nameKey, descriptionKey, tags = [], source_code_link, type,
+    isClient, clientBadge, isFeatured, isOwn, visual, metrics = [],
   } = project;
 
   const cardRef = useRef(null);
-
   const handleMouseMove = (event) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    cardRef.current.style.setProperty("--x", `${x}%`);
-    cardRef.current.style.setProperty("--y", `${y}%`);
+    cardRef.current.style.setProperty("--x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+    cardRef.current.style.setProperty("--y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+  };
+
+  const handleClick = () => onToggle();
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onToggle();
+    }
   };
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
+      layout
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
       onMouseMove={handleMouseMove}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border bg-flow-surface transition-all duration-200 ${
+      role="button"
+      tabIndex={0}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-xl border bg-flow-surface transition-colors duration-200 cursor-pointer ${
         isFeatured
           ? "border-flow-accent/40 shadow-amber-sm"
           : "border-flow-border hover:border-flow-accent/30 hover:shadow-[0_4px_24px_rgba(240,165,0,0.08)]"
@@ -243,20 +300,16 @@ const ProjectCard = ({ project, t }) => {
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(240,165,0,0.06), transparent 60%)",
-        }}
+        style={{ background: "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(240,165,0,0.06), transparent 60%)" }}
       />
 
       <ProjectVisual type={visual} />
 
       {source_code_link && (
         <a
-          href={source_code_link}
-          target="_blank"
-          rel="noreferrer"
+          href={source_code_link} target="_blank" rel="noreferrer"
           aria-label={t("alt.sourceCode")}
+          onClick={(e) => e.stopPropagation()}
           className="absolute right-3 top-3 z-20 grid h-8 w-8 place-items-center rounded-full border border-flow-accent/30 bg-flow-bg/85 text-flow-text backdrop-blur transition-colors hover:border-flow-accent hover:text-flow-accent"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -267,101 +320,90 @@ const ProjectCard = ({ project, t }) => {
 
       <div className="relative flex flex-1 flex-col gap-3 p-5">
         <div className="flex flex-wrap gap-1.5">
-          {type && (
-            <span className="rounded border border-flow-accent/30 bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-flow-accent">
-              {type}
-            </span>
-          )}
-          {isClient && clientBadge && (
-            <span className="rounded border border-amber-300/25 bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-amber-300">
-              {clientBadge}
-            </span>
-          )}
-          {isOwn && (
-            <span className="rounded border border-flow-border bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-flow-muted">
-              {t("projects.badges.own")}
-            </span>
-          )}
+          {type && <span className="rounded border border-flow-accent/30 bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-flow-accent">{type}</span>}
+          {isClient && clientBadge && <span className="rounded border border-amber-300/25 bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-amber-300">{clientBadge}</span>}
+          {isOwn && <span className="rounded border border-flow-border bg-flow-bg px-2 py-0.5 font-mono text-[10px] text-flow-muted">{t("projects.badges.own")}</span>}
         </div>
 
-        <h3 className="font-mono text-[15px] font-semibold text-flow-text">
-          {t(nameKey)}
-        </h3>
-        <p className="line-clamp-3 font-body text-[13px] leading-relaxed text-flow-muted">
-          {t(descriptionKey)}
-        </p>
+        <h3 className="font-mono text-[15px] font-semibold text-flow-text">{t(nameKey)}</h3>
 
-        {metrics.length > 0 && (
-          <div className="grid gap-1.5">
-            {metrics.map((metric) => (
-              <div
-                key={metric}
-                className="flex items-center gap-2 rounded-md border border-flow-border/70 bg-flow-bg px-2.5 py-1.5"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-flow-accent" />
-                <span className="font-mono text-[11px] text-flow-muted">
-                  {metric}
-                </span>
+        <div className="flex items-center gap-1.5 font-mono text-[11px] tracking-wider uppercase text-flow-accent/60 transition-colors group-hover:text-flow-accent">
+          <span>{isActive ? t("projects.hideDetails") : t("projects.viewDetails")}</span>
+          <svg
+            className={`h-3 w-3 transition-transform duration-300 ${isActive ? "rotate-180" : ""}`}
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+
+        <motion.div
+          animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="overflow-hidden"
+        >
+          <div className="space-y-3">
+            <p className="line-clamp-3 font-body text-[13px] leading-relaxed text-flow-muted">
+              {t(descriptionKey)}
+            </p>
+            {metrics.length > 0 && (
+              <div className="grid gap-1.5">
+                {metrics.map((metric) => (
+                  <div key={metric} className="flex items-center gap-2 rounded-md border border-flow-border/70 bg-flow-bg px-2.5 py-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-flow-accent" />
+                    <span className="font-mono text-[11px] text-flow-muted">{metric}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+            <div className="flex flex-wrap gap-1.5 border-t border-flow-border pt-3">
+              {tags.map((tag) => (
+                <span key={tag.name} className="rounded-sm border border-flow-border/50 bg-flow-bg px-2 py-0.5 font-mono text-[11px] text-flow-accent/70">
+                  #{tag.name}
+                </span>
+              ))}
+            </div>
           </div>
-        )}
-
-        <div className="mt-auto flex flex-wrap gap-1.5 border-t border-flow-border pt-3">
-          {tags.map((tag) => (
-            <span
-              key={tag.name}
-              className="rounded-sm border border-flow-border/50 bg-flow-bg px-2 py-0.5 font-mono text-[11px] text-flow-accent/70"
-            >
-              #{tag.name}
-            </span>
-          ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Works = () => {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("all");
+  const [expandedProject, setExpandedProject] = useState(null);
   const filteredProjects = projects.filter(filterMap[activeFilter]);
+
+  const handleToggle = (nameKey) => {
+    setExpandedProject((prev) => (prev === nameKey ? null : nameKey));
+  };
 
   return (
     <>
       <SectionHeader eyebrow={t("work.sub")} title={t("work.title")} />
-
       <div className="w-full">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 max-w-3xl font-body text-[17px] leading-[30px] text-flow-muted"
-        >
+        <motion.p variants={fadeIn("", "", 0.1, 1)} className="mt-3 max-w-3xl font-body text-[17px] leading-[30px] text-flow-muted">
           {t("work.body")}
         </motion.p>
       </div>
-
       <div className="mt-8 flex flex-wrap gap-2">
-        {FILTERS.map((filter) => {
-          const isActive = activeFilter === filter.key;
-
-          return (
-            <button
-              key={filter.key}
-              type="button"
-              onClick={() => setActiveFilter(filter.key)}
-              className={`rounded-full border px-4 py-1.5 font-mono text-xs transition-all duration-150 ${
-                isActive
-                  ? "border-flow-accent bg-flow-accent text-flow-bg"
-                  : "border-flow-border bg-transparent text-flow-muted hover:border-flow-accent/50 hover:text-flow-text"
-              }`}
-              aria-pressed={isActive}
-            >
-              {t(filter.labelKey)}
-            </button>
-          );
-        })}
+        {FILTERS.map((filter) => (
+          <button
+            key={filter.key} type="button"
+            onClick={() => setActiveFilter(filter.key)}
+            className={`rounded-full border px-4 py-1.5 font-mono text-xs transition-all duration-150 ${
+              activeFilter === filter.key
+                ? "border-flow-accent bg-flow-accent text-flow-bg"
+                : "border-flow-border bg-transparent text-flow-muted hover:border-flow-accent/50 hover:text-flow-text"
+            }`}
+            aria-pressed={activeFilter === filter.key}
+          >
+            {t(filter.labelKey)}
+          </button>
+        ))}
       </div>
-
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence>
           {filteredProjects.map((project, index) => (
@@ -372,7 +414,11 @@ const Works = () => {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.35, delay: index * 0.06 }}
             >
-              <ProjectCard project={project} t={t} />
+              <ProjectCard
+                project={project} t={t}
+                isActive={expandedProject === project.nameKey}
+                onToggle={() => handleToggle(project.nameKey)}
+              />
             </motion.div>
           ))}
         </AnimatePresence>
