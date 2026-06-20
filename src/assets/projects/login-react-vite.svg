@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g5" x1="0" x2="1">
+      <stop offset="0" stop-color="#6366F1" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g5)" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="50%" y="45%" text-anchor="middle" font-size="56" font-weight="700">Login · React + Vite</text>
+    <text x="50%" y="60%" text-anchor="middle" font-size="20" opacity="0.95">Ejemplo de autenticación con buena UX</text>
+  </g>
+</svg>

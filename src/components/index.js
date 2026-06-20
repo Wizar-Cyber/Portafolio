@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
 import Tech from "./Tech";
+import AIStack from "./AIStack";
 import Works from "./Works";
 import Contact from "./Contact";
 import Education from "./Education";
@@ -15,6 +16,7 @@ export {
   Navbar,
   About,
   Tech,
+  AIStack,
   Works,
   Education,
   Certifications,

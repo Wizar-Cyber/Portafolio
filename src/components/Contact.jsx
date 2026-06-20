@@ -101,12 +101,12 @@ const Contact = () => {
     <div>
       <SectionHeader eyebrow={t("contact.sub")} title={t("contact.title")} />
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1.5fr_1fr]">
+      <div className="mt-10 grid items-stretch gap-8 lg:grid-cols-[1.5fr_1fr]">
         <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
           variants={slideIn("left", "tween", 0.1, 0.6)}
-          className="flex flex-col gap-4"
+          className="flex h-full flex-col gap-4"
         >
           <Field
             type="text"
@@ -126,7 +126,7 @@ const Contact = () => {
           />
           <Field
             as="textarea"
-            rows={4}
+            rows={9}
             name="message"
             value={form.message}
             onChange={handleChange}
@@ -157,19 +157,32 @@ const Contact = () => {
 
         <motion.aside
           variants={slideIn("right", "tween", 0.1, 0.6)}
-          className="rounded-xl border border-flow-border bg-flow-surface p-7"
+          className="h-full rounded-xl border border-flow-border bg-flow-surface p-7"
         >
           <h3 className="font-mono text-[13px] uppercase tracking-[0.1em] text-flow-muted">
             {t("contact.direct")}
           </h3>
 
+          <div className="mt-5 rounded-lg border border-flow-accent/25 bg-flow-bg p-4">
+            <p className="font-mono text-sm font-semibold text-flow-text">
+              {t("contact.ctaTitle")}
+            </p>
+            <p className="mt-2 font-body text-sm leading-6 text-flow-muted">
+              {t("contact.ctaBody")}
+            </p>
+          </div>
+
           <div className="mt-5 flex flex-col gap-4">
-            <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 font-body text-sm text-flow-text transition-colors hover:text-flow-accent hover:underline">
-              <ContactIcon>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
-              </ContactIcon>
-              {EMAIL}
-            </a>
+            <button
+              onClick={handleCopyEmail}
+              className="flex items-center gap-3 font-body text-sm text-flow-text transition-colors hover:text-flow-accent"
+              title={t("contact.copyEmail")}
+            >
+              <svg className="h-4 w-4 flex-shrink-0 text-flow-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2m-6 12h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z" />
+              </svg>
+              {copied ? t("contact.copied") : EMAIL}
+            </button>
             <a href="https://www.linkedin.com/in/reiberlozano/" target="_blank" rel="noreferrer" className="flex items-center gap-3 font-body text-sm text-flow-text transition-colors hover:text-flow-accent hover:underline">
               <svg className="h-4 w-4 flex-shrink-0 text-flow-accent" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
@@ -190,14 +203,6 @@ const Contact = () => {
               {t("contact.location")}
             </div>
           </div>
-
-          <button
-            type="button"
-            onClick={handleCopyEmail}
-            className="mt-6 font-mono text-xs text-flow-muted transition-colors hover:text-flow-accent"
-          >
-            {copied ? t("contact.copied") : t("contact.copyEmail")}
-          </button>
         </motion.aside>
       </div>
     </div>

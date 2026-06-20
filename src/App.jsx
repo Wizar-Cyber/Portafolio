@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { LanguageProvider } from "./i18n/LanguageContext";
-import { About, Certifications, Contact, Education, Hero, Languages, Navbar, Tech, Works, StarsCanvas } from "./components";
+import { About, AIStack, Certifications, Contact, Education, Hero, Languages, Navbar, Tech, Works } from "./components";
+
+const StarsCanvas = lazy(() =>
+  import("./components/canvas").then((module) => ({ default: module.StarsCanvas }))
+);
 
 const App = () => {
   const [theme, setTheme] = useState(() => {
@@ -28,7 +32,7 @@ const App = () => {
             className="pointer-events-none fixed inset-0 z-0"
             style={{
               background:
-                "radial-gradient(ellipse 80% 40% at 50% 0%, rgba(240,165,0,0.07) 0%, transparent 100%)",
+                "radial-gradient(ellipse 80% 40% at 50% 0%, rgba(240,165,0,0.045) 0%, transparent 100%)",
             }}
           />
           <Navbar
@@ -41,13 +45,16 @@ const App = () => {
             <Hero />
             <About />
             <Tech />
+            <AIStack />
             <Works />
             <Education />
             <Certifications />
             <Languages />
             <div className="relative z-0">
               <Contact />
-              <StarsCanvas />
+              <Suspense fallback={null}>
+                <StarsCanvas />
+              </Suspense>
             </div>
           </main>
         </div>

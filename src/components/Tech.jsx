@@ -28,7 +28,9 @@ const Tech = () => {
         {technologies.map((technology, index) => (
           <motion.div
             key={technology.name}
-            variants={fadeIn("up", "tween", index * 0.03, 0.35)}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: index * 0.03 }}
             className="group flex cursor-default items-center gap-2 rounded-md border border-flow-border bg-flow-surface px-[14px] py-2 transition-colors duration-150 hover:border-flow-accent/50"
           >
             <img

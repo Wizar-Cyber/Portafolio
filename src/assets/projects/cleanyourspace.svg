@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g4" x1="0" x2="1">
+      <stop offset="0" stop-color="#10B981" />
+      <stop offset="1" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g4)" />
+  <g fill="#fff" font-family="Inter, Arial, sans-serif">
+    <text x="50%" y="45%" text-anchor="middle" font-size="56" font-weight="700">CleanYourSpace</text>
+    <text x="50%" y="60%" text-anchor="middle" font-size="20" opacity="0.95">Plataforma de operaciones y escalabilidad bilingüe</text>
+  </g>
+</svg>

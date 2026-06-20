@@ -10,7 +10,7 @@ export const translations = {
     "hero.greeting": "Hola, soy",
     "hero.subtitle1": "Ingeniero de software enfocado en desarrollo web.",
     "hero.subtitle2": "Interesado en IA y machine learning.",
-    "hero.bio": "Construyo sistemas que automatizan lo que debería ser automatizado.",
+    "hero.bio": "Construyo sistemas inteligentes con IA, datos y software robusto.",
     "hero.downloadCv": "Descargar CV",
     "hero.available": "Disponible",
     "hero.photoPlaceholder": "Tu foto",
@@ -18,7 +18,7 @@ export const translations = {
     "about.sub": "Introducción",
     "about.title": "Resumen.",
     "about.body":
-      "Soy ingeniero de software con experiencia en TypeScript y JavaScript, especializado en frameworks como React, Node.js y Three.js. También trabajo con Python y Java, gestionando bases de datos y creando soluciones backend robustas. Colaboro de cerca con clientes para construir aplicaciones escalables, eficientes y centradas en el usuario. Estoy ampliando mi experiencia en IA y machine learning para crear experiencias digitales más inteligentes.",
+      "Oriento mi perfil a inteligencia artificial aplicada, machine learning y data science. Construyo sistemas que combinan modelos, datos e interfaces web para convertir información dispersa en decisiones, predicciones y productos usables. Trabajo de punta a punta: análisis de datos, backend, APIs de IA, frontend y despliegue.",
 
     "services.softwareEngineering": "Ingeniería de software",
     "services.frontend": "Desarrollo Frontend",
@@ -28,8 +28,15 @@ export const translations = {
     "work.sub": "Mi trabajo",
     "work.title": "Proyectos.",
     "tech.title": "Tecnologías.",
+    "aistack.sub": "Machine Learning & Data Science",
+    "aistack.title": "Stack de IA",
+    "aistack.body": "Mi foco es construir soluciones de IA con bases sólidas de datos: limpieza, análisis, embeddings, RAG, modelos supervisados, APIs de inferencia y dashboards que permitan evaluar resultados.",
+    "aistack.workflow.modeling": "Modelado y evaluación",
+    "aistack.workflow.rag": "RAG y embeddings",
+    "aistack.workflow.analytics": "Análisis y visualización de datos",
+    "aistack.workflow.deployment": "APIs de inferencia y despliegue",
     "work.body":
-      "Estos proyectos muestran mis habilidades y experiencia mediante ejemplos reales. Cada proyecto incluye una breve descripción y enlaces al repositorio y/o demo. Reflejan mi capacidad para resolver problemas, trabajar con diferentes tecnologías y entregar resultados.",
+      "Una selección de sistemas reales y productos propios donde aplico IA, análisis de datos, RAG, enriquecimiento de información y plataformas full-stack. Cada card resume el problema, el stack y el impacto técnico o de negocio.",
 
     "contact.sub": "Hablemos",
     "contact.title": "Contacto.",
@@ -52,6 +59,8 @@ export const translations = {
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
     "contact.direct": "Contacto directo",
+    "contact.ctaTitle": "¿Tienes un problema de datos o IA?",
+    "contact.ctaBody": "Cuéntame qué datos tienes, qué decisión quieres mejorar y qué resultado necesitas medir.",
 
     "education.sub": "Formación",
     "education.title": "Estudios.",
@@ -75,14 +84,31 @@ export const translations = {
     "alt.sourceCode": "Código fuente",
     "alt.feedback": "Comentario de",
 
+    "projects.filters.all": "Todos",
+    "projects.filters.ai": "AI",
+    "projects.filters.ml": "Data/ML",
+    "projects.filters.client": "Cliente real",
+    "projects.filters.fullstack": "Full-Stack",
+    "projects.badges.own": "Propio",
+    "projects.screenshotSoon": "Screenshot próximamente",
+
+    "projects.gmailbot.name": "AI Gmail Bot",
+    "projects.gmailbot.description": "Sistema NLP con RAG para recuperar historial de emails, construir contexto relevante y generar respuestas con GPT-4o. Enfocado en embeddings, ranking de contexto y calidad de respuesta.",
+
+    "projects.n8npipeline.name": "Video Pipeline EZpermitsTX",
+    "projects.n8npipeline.description": "Pipeline de procesamiento de video para firma de permisos en Houston. Usa Whisper via fal.ai para speech-to-text, extracción de captions y generación de texto a partir de transcripciones.",
+
+    "projects.cantrack.name": "CanTrack CRM",
+    "projects.cantrack.description": "CRM con inteligencia de leads. Playwright extrae datos, Gemini analiza señales del perfil y Groq soporta respuestas de baja latencia. Enfocado en enriquecimiento, scoring y análisis asistido por LLM.",
+
     "projects.crm.name": "CRM EZpermitsTX",
-    "projects.crm.description": "Aplicación web full-stack desarrollada para una firma de asesoría legal y acompañamiento en Houston, Texas, especializada en permisos de construcción. La solución centraliza la gestión de leads y clientes, automatiza el seguimiento comercial, organiza rutas de servicio y permite la generación de recorridos optimizados mediante integración de mapas interactivos, mejorando la eficiencia operativa y la atención al cliente.",
+    "projects.crm.description": "CRM full-stack para firma de asesoría legal en Houston, TX especializada en permisos de construcción. Centraliza 200+ leads, elimina hojas de cálculo y genera rutas optimizadas con mapas interactivos para visitas de campo. Stack: React, TypeScript, PostgreSQL y Drizzle ORM.",
     
     "projects.pet.name": "El Club Pet",
-    "projects.pet.description": "Aplicación web full-stack diseñada como solución integral para clínicas veterinarias, que digitaliza y optimiza la gestión operativa del negocio. Permite la autenticación de usuarios, agendamiento de citas, registro y administración de mascotas, creación de historias clínicas digitales, gestión de PQRS y visualización de estadísticas mediante un dashboard administrativo, facilitando el control, seguimiento y mejora del servicio veterinario.",
+    "projects.pet.description": "Plataforma integral para clínicas veterinarias. Gestiona citas, historias clínicas digitales, PQRS y métricas de operación en un dashboard. Sesiones con Redis, autenticación con JWT + refresh tokens y acceso por roles.",
     
-    "projects.smartflow.name": "Smart Flow",
-    "projects.smartflow.description": "Aplicación web full-stack desarrollada para una startup de automatización empresarial con IA. La plataforma ofrece soluciones inteligentes para digitalizar y optimizar procesos, permite reducir costos, ahorrar tiempo en tareas y mejorar la experiencia del cliente. Integra servicios de automatización, gestión de contenidos, analítica, formularios de contacto y soporte multilenguaje, con una arquitectura moderna, escalable y orientada al rendimiento.",
+    "projects.smartflow.name": "SmartFlow",
+    "projects.smartflow.description": "Plataforma web de SmartFlow, startup propia enfocada en soluciones digitales con IA. Presenta servicios basados en datos, captura leads, ofrece soporte multilenguaje y analítica de conversiones. Arquitectura JAMstack con backend Node.js y PostgreSQL.",
     
     "projects.calculadora.name": "Calculadora de Nómina",
     "projects.calculadora.description": "Aplicación web que automatiza el cálculo de nómina de conductores en Colombia, interpretando códigos de turnos y aplicando recargos, deducciones legales y eventos especiales para generar un resultado neto preciso y transparente. Funciona completamente en el navegador, sin bases de datos, ofreciendo rapidez, exactitud y facilidad de uso.",
@@ -143,7 +169,7 @@ export const translations = {
     "hero.greeting": "Hi, I'm",
     "hero.subtitle1": "Software engineer focused on web development.",
     "hero.subtitle2": "Interested in AI and machine learning.",
-    "hero.bio": "I build systems that automate what should be automated.",
+    "hero.bio": "I build intelligent systems with AI, data, and robust software.",
     "hero.downloadCv": "Download CV",
     "hero.available": "Available",
     "hero.photoPlaceholder": "Your photo",
@@ -151,7 +177,7 @@ export const translations = {
     "about.sub": "Introduction",
     "about.title": "Overview.",
     "about.body":
-      "I'm a software engineer with experience in TypeScript and JavaScript, specializing in frameworks like React, Node.js, and Three.js. I also work with Python and Java, managing databases and building robust backend solutions. I collaborate closely with clients to develop scalable, efficient, and user-friendly applications. I'm expanding my expertise in AI and machine learning to create smarter digital experiences.",
+      "I am positioning my profile around applied artificial intelligence, machine learning, and data science. I build systems that combine models, data, and web interfaces to turn scattered information into decisions, predictions, and usable products. I work end to end across data analysis, backend, AI APIs, frontend, and deployment.",
 
     "services.softwareEngineering": "Software Engineering",
     "services.frontend": "Frontend Development",
@@ -161,8 +187,15 @@ export const translations = {
     "work.sub": "My work",
     "work.title": "Projects.",
     "tech.title": "Technologies.",
+    "aistack.sub": "Machine Learning & Data Science",
+    "aistack.title": "AI stack",
+    "aistack.body": "My focus is building AI solutions on solid data foundations: cleaning, analysis, embeddings, RAG, supervised models, inference APIs, and dashboards for evaluating results.",
+    "aistack.workflow.modeling": "Modeling and evaluation",
+    "aistack.workflow.rag": "RAG and embeddings",
+    "aistack.workflow.analytics": "Data analysis and visualization",
+    "aistack.workflow.deployment": "Inference APIs and deployment",
     "work.body":
-      "These projects showcase my skills and experience through real-world examples. Each project includes a short description and links to a repository and/or demo. They reflect my ability to solve problems, work with different technologies, and deliver results.",
+      "A curated set of real systems and owned products where I apply AI, data analysis, RAG, information enrichment, and full-stack platforms. Each card highlights the problem, stack, and technical or business impact.",
 
     "contact.sub": "Get in touch",
     "contact.title": "Contact.",
@@ -185,6 +218,8 @@ export const translations = {
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
     "contact.direct": "Direct contact",
+    "contact.ctaTitle": "Have an AI or data problem?",
+    "contact.ctaBody": "Tell me what data you have, which decision you want to improve, and what outcome you need to measure.",
 
     "education.sub": "Education",
     "education.title": "Studies.",
@@ -208,14 +243,31 @@ export const translations = {
     "alt.sourceCode": "Source code",
     "alt.feedback": "Feedback by",
 
+    "projects.filters.all": "All",
+    "projects.filters.ai": "AI",
+    "projects.filters.ml": "Data/ML",
+    "projects.filters.client": "Real client",
+    "projects.filters.fullstack": "Full-Stack",
+    "projects.badges.own": "Own",
+    "projects.screenshotSoon": "Screenshot coming soon",
+
+    "projects.gmailbot.name": "AI Gmail Bot",
+    "projects.gmailbot.description": "NLP system with RAG to retrieve email history, build relevant context, and generate replies with GPT-4o. Focused on embeddings, context ranking, and response quality.",
+
+    "projects.n8npipeline.name": "Video Pipeline EZpermitsTX",
+    "projects.n8npipeline.description": "Video processing pipeline for a Houston permitting firm. Uses Whisper via fal.ai for speech-to-text, caption extraction, and text generation from transcriptions.",
+
+    "projects.cantrack.name": "CanTrack CRM",
+    "projects.cantrack.description": "CRM with lead intelligence. Playwright extracts data, Gemini analyzes profile signals, and Groq supports low-latency responses. Focused on enrichment, scoring, and LLM-assisted analysis.",
+
     "projects.crm.name": "CRM EZpermitsTX",
-    "projects.crm.description": "Full-stack web application developed for a legal consulting and advisory firm in Houston, Texas, specializing in construction permits. The solution centralizes lead and customer management, automates commercial follow-up, organizes service routes, and enables generation of optimized routes through interactive map integration, improving operational efficiency and customer service.",
+    "projects.crm.description": "Full-stack CRM for a Houston, TX legal advisory firm specializing in construction permits. Centralizes 200+ leads, eliminates spreadsheets, and generates optimized field visit routes via interactive maps. Stack: React, TypeScript, PostgreSQL, and Drizzle ORM.",
     
     "projects.pet.name": "El Club Pet",
-    "projects.pet.description": "Full-stack web application designed as an integral solution for veterinary clinics, digitizing and optimizing business operational management. It allows user authentication, appointment scheduling, pet registration and administration, digital medical record creation, PQRS management, and statistics visualization through an administrative dashboard, facilitating control, monitoring, and improvement of veterinary service.",
+    "projects.pet.description": "End-to-end platform for veterinary clinics. Manages appointments, digital medical records, complaints, and operational metrics on a single dashboard. Redis sessions, JWT with refresh tokens, and role-based access.",
     
-    "projects.smartflow.name": "Smart Flow",
-    "projects.smartflow.description": "Full-stack web application developed for an AI business automation startup. The platform offers intelligent solutions to digitize and optimize operational processes, enabling companies to reduce costs, save time on repetitive tasks, and improve customer experience. It integrates automation services, content management, analytics, contact forms, and multilingual support, with a modern, scalable, and performance-oriented architecture.",
+    "projects.smartflow.name": "SmartFlow",
+    "projects.smartflow.description": "Web platform for SmartFlow, my own startup focused on AI-powered digital solutions. Presents data-driven services, captures leads, supports multiple languages, and tracks conversion analytics. JAMstack architecture with Node.js backend and PostgreSQL.",
     
     "projects.calculadora.name": "Payroll Calculator",
     "projects.calculadora.description": "Web application that automates payroll calculation for drivers in Colombia, interpreting shift codes and applying surcharges, legal deductions, and special events to generate a precise and transparent net result. It runs completely in the browser, without databases, offering speed, accuracy, and ease of use.",

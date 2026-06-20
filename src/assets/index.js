@@ -22,29 +22,6 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import java from "./tech/java.png";
 
-import crm1 from "./crm1.png";
-import crm2 from "./crm2.png";
-import crm3 from "./crm3.png";
-import crm4 from "./crm4.png";
-import crm5 from "./crm5.png";
-import crm6 from "./crm6.png";
-import pet1 from "./pet1.png";
-import pet2 from "./pet2.png";
-import pet3 from "./pet3.png";
-import pet5 from "./pet5.png";
-import sm1 from "./sm1.png";
-import sm2 from "./sm2.png";
-import sm3 from "./sm3.png";
-import sm4 from "./sm4.png";
-import nmt1 from "./nmt1.png";
-import nmt2 from "./nmt2.png";
-import lg1 from "./lg1.png";
-import lg2 from "./lg2.png";
-import ptf1 from "./ptf1.png";
-import ptf2 from "./ptf2.png";
-import ptf3 from "./ptf3.png";
-import ptf4 from "./ptf4.png";
-
 export {
   logo,
   profile,
@@ -68,26 +45,4 @@ export {
   tailwind,
   typescript,
   java,
-  crm1,
-  crm2,
-  crm3,
-  crm4,
-  crm5,
-  crm6,
-  pet1,
-  pet2,
-  pet3,
-  pet5,
-  sm1,
-  sm2,
-  sm3,
-  sm4,
-  nmt1,
-  nmt2,
-  lg1,
-  lg2,
-  ptf1,
-  ptf2,
-  ptf3,
-  ptf4,
 };
