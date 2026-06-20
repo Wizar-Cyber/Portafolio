@@ -174,7 +174,10 @@ export const translations = {
     "languages.spanish.level": "Nativo",
     
     "languages.english.name": "Inglés",
-    "languages.english.level": "B1"
+    "languages.english.level": "B1",
+
+    "languages.portuguese.name": "Portugués",
+    "languages.portuguese.level": "B1"
   },
 
   en: {
@@ -352,6 +355,9 @@ export const translations = {
     "languages.spanish.level": "Native",
     
     "languages.english.name": "English",
-    "languages.english.level": "B1"
+    "languages.english.level": "B1",
+
+    "languages.portuguese.name": "Portuguese",
+    "languages.portuguese.level": "B1"
   },
 };

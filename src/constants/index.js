@@ -133,6 +133,10 @@ const languages = [
     nameKey: "languages.english.name",
     levelKey: "languages.english.level",
   },
+  {
+    nameKey: "languages.portuguese.name",
+    levelKey: "languages.portuguese.level",
+  },
 ];
 
 const technologies = [

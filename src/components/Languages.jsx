@@ -39,11 +39,11 @@ const LanguageCard = ({ index, item, t }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.1, 0.55)}
-      className="flex items-center justify-between gap-5 rounded-[10px] border border-flow-border bg-flow-surface p-5 transition-colors duration-150 hover:border-flow-accent/20"
+      className="flex h-full items-center justify-between gap-5 rounded-[10px] border border-flow-border bg-flow-surface p-6 transition-colors duration-150 hover:border-flow-accent/25"
     >
       <div className="flex items-center gap-3">
         <span className="text-2xl">
-          {index === 0 ? "\uD83C\uDDE8\uD83C\uDDF4" : "\uD83C\uDDFA\uD83C\uDDF8"}
+          {index === 0 ? "\uD83C\uDDE8\uD83C\uDDF4" : index === 1 ? "\uD83C\uDDFA\uD83C\uDDF8" : "\uD83C\uDDE7\uD83C\uDDF7"}
         </span>
         <div>
           <p className="font-body text-[15px] text-flow-text">{t(item.nameKey)}</p>
@@ -72,7 +72,7 @@ const Languages = () => {
     <>
       <SectionHeader eyebrow={t("languages.sub")} title={t("languages.title")} />
 
-      <div className="mt-10 grid max-w-[600px] grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {languages.map((item, index) => (
           <LanguageCard key={`language-${index}`} index={index} item={item} t={t} />
         ))}

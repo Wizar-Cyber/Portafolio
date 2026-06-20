@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { FaCloud, FaGraduationCap, FaShieldAlt } from "react-icons/fa";
+import { SiDatacamp, SiGoogle } from "react-icons/si";
 
 import { certifications } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -18,10 +20,14 @@ const SectionHeader = ({ eyebrow, title }) => (
   </motion.div>
 );
 
-const issuerInitials = (issuer) => {
-  if (issuer.toLowerCase().includes("mintic")) return "MT";
-  if (issuer.toLowerCase().includes("oracle")) return "OR";
-  return "GG";
+const issuerIcon = (issuer) => {
+  const name = issuer.toLowerCase();
+  if (name.includes("google")) return <SiGoogle className="h-5 w-5 text-flow-accent" />;
+  if (name.includes("oracle")) return <FaCloud className="h-5 w-5 text-flow-accent" />;
+  if (name.includes("datacamp")) return <SiDatacamp className="h-5 w-5 text-flow-accent" />;
+  if (name.includes("mintic")) return <FaShieldAlt className="h-5 w-5 text-flow-accent" />;
+  if (name.includes("edutin")) return <FaGraduationCap className="h-5 w-5 text-flow-accent" />;
+  return <FaShieldAlt className="h-5 w-5 text-flow-accent" />;
 };
 
 const CertificationCard = ({ index, item, viewLabel, t }) => {
@@ -33,9 +39,7 @@ const CertificationCard = ({ index, item, viewLabel, t }) => {
       className="flex items-start gap-4 rounded-[10px] border border-flow-border bg-flow-surface p-5 transition-colors duration-150 hover:border-flow-accent/25"
     >
       <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-lg border border-flow-border bg-flow-bg">
-        <span className="font-mono text-sm font-bold text-flow-accent">
-          {issuerInitials(issuer)}
-        </span>
+        {issuerIcon(issuer)}
       </div>
 
       <div className="min-w-0 flex-1">
