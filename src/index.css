@@ -43,6 +43,14 @@
   scroll-behavior: smooth;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--flow-bg);
+}
+
 .hash-span {
   display: block;
   position: relative;
