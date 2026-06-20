@@ -24,9 +24,22 @@
 - About
 - Tech Stack (iconos con animación)
 - AI Stack (iconos SVG de librerías de IA/ML)
-- Proyectos con filtros (AI, Data/ML, Cliente real, Full-Stack)
-- Educación y certificaciones
+- **Proyectos** — 6 proyectos con filtros (AI, Data/ML, Cliente real, Full-Stack, Automatización) y tarjetas click-to-toggle con animaciones únicas (matriz de confusión, burbujas de chat, grafo de flujo, pipeline 3D, tabla, mapa)
+- **Educación** — 6 tarjetas (Pregrado, Diplomados, Cursos)
+- **Certificaciones** — 5 certificaciones con iconos por issuer (Google, Oracle, Datacamp, MinTIC, Edutin)
+- **Idiomas** — Español (Nativo), Inglés (B1), Portugués (B1) — 3 columnas
 - Contacto con formulario EmailJS + contacto directo
+
+## Proyectos Destacados
+
+| Proyecto | Tipo | Animación |
+|---|---|---|
+| **Deserción Estudiantil** | ML Predictor | Matriz de confusión animada |
+| **Avatar IA** | Academia AI | Burbujas de chat tipo ChatGPT |
+| **N8n Automator** | Automatización n8n | Grafo de flujo con nodos animados |
+| **SafeRoute** | Data/ML | Mapa con rutas |
+| **GreenField** | Cliente real | Pipeline 3D + tabla de datos |
+| **WizarPay** | Full-Stack | Pipeline 3D + tabla |
 
 ## Quick Start
 
